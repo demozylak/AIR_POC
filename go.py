@@ -82,7 +82,8 @@ for gen in testers:
         os.mkdir(subpath)
     for i in range(len(filenames_in)):
         fname_in = filenames_in[i]
-        size_in = os.stat(os.path.join(FOLDER_IN, fname_in)).st_size
+        pictures_in[i].copy().convert("RGB").save('tmp.bmp')
+        size_in = os.stat('tmp.bmp').st_size
         base, ext = os.path.splitext(fname_in)
         if not os.path.exists(os.path.join(subpath, base)):
             os.mkdir(os.path.join(subpath, base))
